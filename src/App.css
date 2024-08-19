@@ -1,0 +1,163 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(135deg, #e0e0e0, #ffffff); /* Light gray to white gradient */  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/* Game Container */
+.game {
+  text-align: center;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  width: 360px;
+}
+
+/* Status Styling */
+.status {
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #e0e0e0;
+  border: 1px solid #ccc;
+}
+
+/* Scoreboard Styling */
+.scoreboard {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.score {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #333;
+  background: #fff;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  padding: 10px 20px;
+}
+
+/* Board Styling */
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
+  gap: 10px; /* Spacing between squares */
+  margin-bottom: 20px;
+  justify-content: center;
+}
+
+/* Square Styling */
+.square {
+  width: 100px;
+  height: 100px;
+  background: #f0f0f0;
+  border: 2px solid #cccccc;
+  border-radius: 8px;
+  font-size: 2rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+.square:hover {
+  background: #e0e0e0;
+}
+
+.square:active {
+  background: #e0e0e0;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* X and O Styling */
+.square-x {
+  color: #007bff; /* Blue for X */
+}
+
+.square-o {
+  color: #dc3545; /* Red for O */
+}
+
+/* Button Styling */
+button {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .game {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .scoreboard {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .score {
+    width: 100%;
+    text-align: center;
+  }
+
+  .board {
+    grid-template-columns: repeat(3, 80px);
+    grid-template-rows: repeat(3, 80px);
+    gap: 8px; /* Adjusted spacing for smaller screens */
+  }
+
+  .square {
+    width: 80px;
+    height: 80px;
+    font-size: 1.8rem;
+  }
+}
+
+/* Winning Animation */
+@keyframes highlight {
+  from {
+    background-color: #ffffff;
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  }
+  to {
+    background-color: #dff0d8;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
+  }
+}
+
+.square.winning {
+  animation: highlight 1s ease-in-out forwards;
+  border: 3px solid #00ff00; /* Green border for winning line */
+}
